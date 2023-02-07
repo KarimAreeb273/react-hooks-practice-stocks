@@ -1,13 +1,15 @@
 import React from "react";
 import Stock from "./Stock";
 
-function PortfolioContainer() {
+function PortfolioContainer({stocks, removeStocks}) {
+  const portArr = stocks.map((item) => {
+    return <Stock key={item.id} stock={item} onStock = {removeStocks}/>
+  })
+ 
   return (
     <div>
-      <h2>My Portfolio</h2>
-      {
-        //render your portfolio stocks here
-      }
+      <h2>My Portfolio</h2>   
+      {portArr}
     </div>
   );
 }
